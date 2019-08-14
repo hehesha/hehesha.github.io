@@ -5,17 +5,17 @@
   
 
   
-  <title>lele的博客</title>
+  <title>Le</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:title" content="Le">
+<meta property="og:url" content="https://hehesha.github.io/index.html">
+<meta property="og:site_name" content="Le">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Le">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Le" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -42,7 +42,7 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">首页</a>
+          <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
         
@@ -54,13 +54,55 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hehesha.github.io"></form>
       </div>
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-mobile-pageProblem" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/14/mobile-pageProblem/" class="article-date">
+  <time datetime="2019-08-14T07:20:58.000Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/14/mobile-pageProblem/">移动端键盘收回页面不收回的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动端在输入框获得焦点的时候，键盘会弹起，页面整体会往上移。当失去焦点的时候，正常情况下键盘会收起，页面跟着回落。但在输入框未失去焦点时，马上点击上传，会调取手机的选择文件。此时键盘回落，但是有的手机页面不会跟着回落，造成页面错乱。下方留白。</p>
+<p>网上搜索了很多问题，认为是键盘弹起时，页面整体往上滚动。在键盘收起时将页面滚回顶部即可解决，解决方案几乎全是将页面滚回顶部，例如：<br>  onBlur={()=&gt;{<br>    window.scollTo(0,0)<br>  }}<br>但亲测无效。。。。</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/08/14/mobile-pageProblem/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hehesha.github.io/2019/08/14/mobile-pageProblem/" data-id="cjzb02q3u0002e49et2rc04g2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-my-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -89,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/13/my-first-blog/" data-id="cjz9muodw00005y9e7bis2a94" class="article-share-link">Share</a>
+      <a data-url="https://hehesha.github.io/2019/08/13/my-first-blog/" data-id="cjzb02q460003e49e7w09tem7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/13/hello-world/" data-id="cjz9muoe100015y9evf50zsto" class="article-share-link">Share</a>
+      <a data-url="https://hehesha.github.io/2019/08/13/hello-world/" data-id="cjzb02q3r0001e49ezitip0c0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -179,6 +221,10 @@
       <ul>
         
           <li>
+            <a href="/2019/08/14/mobile-pageProblem/">移动端键盘收回页面不收回的问题</a>
+          </li>
+        
+          <li>
             <a href="/2019/08/13/my-first-blog/">测试文章</a>
           </li>
         
@@ -198,7 +244,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
+      &copy; 2019 Le Shi<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

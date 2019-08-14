@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>移动端键盘收回页面不收回的问题 | Le</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="移动端在输入框获得焦点的时候，键盘会弹起，页面整体会往上移。当失去焦点的时候，正常情况下键盘会收起，页面跟着回落。但在输入框未失去焦点时，马上点击上传，会调取手机的选择文件。此时键盘回落，但是有的手机页面不会跟着回落，造成页面错乱。下方留白。 网上搜索了很多问题，认为是键盘弹起时，页面整体往上滚动。在键盘收起时将页面滚回顶部即可解决，解决方案几乎全是将页面滚回顶部，例如：  onBlur={()=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端键盘收回页面不收回的问题">
+<meta property="og:url" content="https://hehesha.github.io/2019/08/14/mobile-pageProblem/index.html">
+<meta property="og:site_name" content="Le">
+<meta property="og:description" content="移动端在输入框获得焦点的时候，键盘会弹起，页面整体会往上移。当失去焦点的时候，正常情况下键盘会收起，页面跟着回落。但在输入框未失去焦点时，马上点击上传，会调取手机的选择文件。此时键盘回落，但是有的手机页面不会跟着回落，造成页面错乱。下方留白。 网上搜索了很多问题，认为是键盘弹起时，页面整体往上滚动。在键盘收起时将页面滚回顶部即可解决，解决方案几乎全是将页面滚回顶部，例如：  onBlur={()=">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-14T07:56:18.589Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端键盘收回页面不收回的问题">
+<meta name="twitter:description" content="移动端在输入框获得焦点的时候，键盘会弹起，页面整体会往上移。当失去焦点的时候，正常情况下键盘会收起，页面跟着回落。但在输入框未失去焦点时，马上点击上传，会调取手机的选择文件。此时键盘回落，但是有的手机页面不会跟着回落，造成页面错乱。下方留白。 网上搜索了很多问题，认为是键盘弹起时，页面整体往上滚动。在键盘收起时将页面滚回顶部即可解决，解决方案几乎全是将页面滚回顶部，例如：  onBlur={()=">
+  
+    <link rel="alternate" href="/atom.xml" title="Le" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Le</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hehesha.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mobile-pageProblem" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/14/mobile-pageProblem/" class="article-date">
+  <time datetime="2019-08-14T07:20:58.000Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端键盘收回页面不收回的问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动端在输入框获得焦点的时候，键盘会弹起，页面整体会往上移。当失去焦点的时候，正常情况下键盘会收起，页面跟着回落。但在输入框未失去焦点时，马上点击上传，会调取手机的选择文件。此时键盘回落，但是有的手机页面不会跟着回落，造成页面错乱。下方留白。</p>
+<p>网上搜索了很多问题，认为是键盘弹起时，页面整体往上滚动。在键盘收起时将页面滚回顶部即可解决，解决方案几乎全是将页面滚回顶部，例如：<br>  onBlur={()=&gt;{<br>    window.scollTo(0,0)<br>  }}<br>但亲测无效。。。。</p>
+<a id="more"></a>
+<p>我的页面使用的是flex布局，页面最外层的高度设成了100vh,此时body压根就没有滚动，再怎么设都是原来的位置。滚动的是页面里面的容器。</p>
+<p>首先尝试了将页面的高度100vh 去掉。再用以上方法解决。页面是滚回顶部了，但是整体还是没有复位。彻底放弃这种解决方案。</p>
+<p>后来在多次研究后，发现并不是每次都有这种问题，有时候键盘落得比较慢的时候，这种问题才会出现。是不是键盘还没反应过来，来不及落下就调用了文件选择？在选择文件前加了个延时器，问题解决。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hehesha.github.io/2019/08/14/mobile-pageProblem/" data-id="cjzb02q3u0002e49et2rc04g2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/13/my-first-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">测试文章</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/14/mobile-pageProblem/">移动端键盘收回页面不收回的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/13/my-first-blog/">测试文章</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/13/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Le Shi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
