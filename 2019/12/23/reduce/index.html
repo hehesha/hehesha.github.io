@@ -5,16 +5,19 @@
   
 
   
-  <title>reduce | Le</title>
+  <title>reduce处理数据技巧 | Le</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="reduce">
+  <meta name="description" content="原理大部分现代的数组方法都返回一个新的数组，而 Array.reduce() 更加灵活。它可以返回任意值，它的功能就是将一个数组的内容聚合成单个值。这个值可以是数字、字符串，甚至可以是对象或新数组。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reduce处理数据技巧">
 <meta property="og:url" content="https://hehesha.github.io/2019/12/23/reduce/index.html">
 <meta property="og:site_name" content="Le">
+<meta property="og:description" content="原理大部分现代的数组方法都返回一个新的数组，而 Array.reduce() 更加灵活。它可以返回任意值，它的功能就是将一个数组的内容聚合成单个值。这个值可以是数字、字符串，甚至可以是对象或新数组。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-23T08:14:21.144Z">
+<meta property="og:updated_time" content="2019-12-23T08:49:39.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="reduce">
+<meta name="twitter:title" content="reduce处理数据技巧">
+<meta name="twitter:description" content="原理大部分现代的数组方法都返回一个新的数组，而 Array.reduce() 更加灵活。它可以返回任意值，它的功能就是将一个数组的内容聚合成单个值。这个值可以是数字、字符串，甚至可以是对象或新数组。">
   
     <link rel="alternate" href="/atom.xml" title="Le" type="application/atom+xml">
   
@@ -75,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      reduce
+      reduce处理数据技巧
     </h1>
   
 
@@ -83,11 +86,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>大部分现代的数组方法都返回一个新的数组，而 Array.reduce() 更加灵活。它可以返回任意值，它的功能就是将一个数组的内容聚合成单个值。<br>这个值可以是数字、字符串，甚至可以是对象或新数组。</p>
+<a id="more"></a>
+
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>Array.reduce()接受两个参数：一个是对数组每个元素执行的回调方法，一个是初始值。<br>这个回调也接受两个参数：accumulator是当前聚合值，current是数组循环时的当前元素。无论你返回什么值，都将作为累加器提供给循环中的下一个元素。初始值将作为第一次循环的累加器。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var myNewArray = [].reduce(function (accumulator, current) &#123;</span><br><span class="line">  return accumulator;</span><br><span class="line">&#125;, starting);</span><br></pre></td></tr></table></figure>
+
+<h3 id="组合多个数组方法"><a href="#组合多个数组方法" class="headerlink" title="组合多个数组方法"></a>组合多个数组方法</h3><p>假设有一个wizards 数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var wizards = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;Harry Potter&apos;,</span><br><span class="line">    house: &apos;Gryfindor&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;Cedric Diggory&apos;,</span><br><span class="line">    house: &apos;Hufflepuff&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;Tonks&apos;,</span><br><span class="line">    house: &apos;Hufflepuff&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;Ronald Weasley&apos;,</span><br><span class="line">    house: &apos;Gryfindor&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: &apos;Hermione Granger&apos;,</span><br><span class="line">    house: &apos;Gryfindor&apos;</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>你想创建一个仅包含住在 Hufflepuff 的巫师名字的新数组。一个可行的方法是使用Array.filter() 方法获取 house 属性为Hufflepuff的 wizards 。然后用Array.map() 方法创建一个只包含过滤后对象的name 属性的新数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var hufflepuff = wizards.filter(function (wizard) &#123;</span><br><span class="line">  return wizard.house === &apos;Hufflepuff&apos;;</span><br><span class="line">&#125;).map(function (wizard) &#123;</span><br><span class="line">  return wizard.name;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用Array.reduce() 方法，我们可以用一步得到同样的结果，提高了性能。传递一个空数组[]作为初始值。每次循环时判断wizard.house 是否为Hufflepuff。如果是，就加入到newArr 中（即accumulator），否则啥也不做。<br>无论判断条件是否成立，最后都返回 newArr 作为下一次循环的accumulator 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var hufflepuff = wizards.reduce(function (newArr, wizard) &#123;</span><br><span class="line">  if (wizard.house === &apos;Hufflepuff&apos;) &#123;</span><br><span class="line">    newArr.push(wizard.name);</span><br><span class="line">  &#125;</span><br><span class="line">  return newArr;</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
+
+<p>！！！</p>
+<p>链接：<a href="https://juejin.im/post/5dfd9d27e51d455825129ec3" target="_blank" rel="noopener">https://juejin.im/post/5dfd9d27e51d455825129ec3</a><br>来源：掘金</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hehesha.github.io/2019/12/23/reduce/" data-id="ck4i610an0000kw9euwh0qqlb" class="article-share-link">Share</a>
+      <a data-url="https://hehesha.github.io/2019/12/23/reduce/" data-id="ck4i7ddr30005sq9ekoj3ojw6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -136,7 +156,7 @@
       <ul>
         
           <li>
-            <a href="/2019/12/23/reduce/">reduce</a>
+            <a href="/2019/12/23/reduce/">reduce处理数据技巧</a>
           </li>
         
           <li>
